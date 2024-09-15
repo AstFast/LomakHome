@@ -1,0 +1,19 @@
+  .Left-card {
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgb(75, 8, 141);
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .Taber {
+    display: flex;
+  }
+  .Right-card {
+    width: 400px;
+    height: 200px;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+  }

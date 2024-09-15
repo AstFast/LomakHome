@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+.image {
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 200px;
+  }
+
+.link-container {
+    margin-left: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: blue;
+  }
