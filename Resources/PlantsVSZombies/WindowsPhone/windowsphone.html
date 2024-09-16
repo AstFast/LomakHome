@@ -20,7 +20,7 @@
                success: function (xml) {
                 var xmlString = new XMLSerializer().serializeToString(xml);
                 var parser = new DOMParser();
-                var newXmlDoc = parser.parseFromString(xmlString, 'text/xml');
+                var XmlDoc = parser.parseFromString(xmlString, 'text/xml');
                 const contents = xmlDoc.getElementsByTagName('Content');
                 for (let i = 0; i < contents.length; i++) {
                     let image = xmlDoc.getElementsByTagName('Image')[0].getAttribute('path');
