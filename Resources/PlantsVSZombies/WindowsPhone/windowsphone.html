@@ -9,10 +9,11 @@
 </head>
 <body>
     <h1>Windows Phone</h1>
-    <hr>
     <p id="start" style="text-align: center;">Due to some issues, we are unable to locate the version and release time</p>
+    <hr>
 </body>
 <script>
+    var ContentList = [];
     $.ajax({
                type: 'GET',
                url: 'data.xml',
@@ -20,7 +21,7 @@
                success: function (xml) {
                 var xmlString = new XMLSerializer().serializeToString(xml);
                 var parser = new DOMParser();
-                var XmlDoc = parser.parseFromString(xmlString, 'text/xml');
+                var xmlDoc = parser.parseFromString(xmlString, 'text/xml');
                 const contents = xmlDoc.getElementsByTagName('Content');
                 for (let i = 0; i < contents.length; i++) {
                     let image = xmlDoc.getElementsByTagName('Image')[0].getAttribute('path');
@@ -36,8 +37,6 @@
                    console.log('读取XML文件时出错');
                }
            });
-    var ContentList = [];
-    
     for (let i = 0; i < ContentList.length; i++) {
         let lineBreak = document.createElement('br');
         let dev0 = document.createElement('div');
