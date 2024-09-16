@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Page.js"></script>
+    <title>Xbox</title>
+    <link rel="stylesheet" href="../card.css">
+</head>
+<body>
+    <h1 >Xbox Zone</h1>
+    <hr>
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "data.xml", true);
+    xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        Page(xhr.responseText,document);
+    };
+    };
+    xhr.send();
+    
+</script>
+</html>
