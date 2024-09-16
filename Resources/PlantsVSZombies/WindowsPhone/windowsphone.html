@@ -25,11 +25,11 @@
                 const contents = xmlDoc.getElementsByTagName('Content');
                 for (let i = 0; i < contents.length; i++) {
                     let image = xmlDoc.getElementsByTagName('Image')[0].getAttribute('path');
-                    let distributor = products[i].getElementsByTagName('Distributor')[0].textContent;
-                    let app = products[i].getElementsByTagName('AppPlatformVersion')[0].textContent;
-                    let special = products[i].getElementsByTagName('Special')[0].textContent;
-                    let download = products[i].getElementsByTagName('Download')[0].textContent;
-                    let sign = products[i].getElementsByTagName('Sign')[0].textContent;
+                    let distributor = ContentList[i].getElementsByTagName('Distributor')[0].textContent;
+                    let app = ContentList[i].getElementsByTagName('AppPlatformVersion')[0].textContent;
+                    let special = ContentList[i].getElementsByTagName('Special')[0].textContent;
+                    let download = ContentList[i].getElementsByTagName('Download')[0].textContent;
+                    let sign = ContentList[i].getElementsByTagName('Sign')[0].textContent;
                     ContentList.push([image,distributor,app,special,download,sign]);
                 }
                },
