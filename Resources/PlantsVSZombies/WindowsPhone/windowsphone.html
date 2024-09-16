@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../ShowPage1.js"></script>
     <title>Windows Phone</title>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
     <link rel="stylesheet" href="../card.css">
 </head>
 <body>
@@ -13,61 +13,16 @@
     <hr>
 </body>
 <script>
-    var ContentList = [];
-    $.ajax({
-               type: 'GET',
-               url: 'data.xml',
-               dataType: 'xml',
-               success: function (xml) {
-                var xmlString = new XMLSerializer().serializeToString(xml);
-                var parser = new DOMParser();
-                var xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-                const contents = xmlDoc.getElementsByTagName('Content');
-                for (let i = 0; i < contents.length; i++) {
-                    let image = xmlDoc.getElementsByTagName('Image')[0].getAttribute('path');
-                    let distributor = ContentList[i].getElementsByTagName('Distributor')[0].textContent;
-                    let app = ContentList[i].getElementsByTagName('AppPlatformVersion')[0].textContent;
-                    let special = ContentList[i].getElementsByTagName('Special')[0].textContent;
-                    let download = ContentList[i].getElementsByTagName('Download')[0].textContent;
-                    let sign = ContentList[i].getElementsByTagName('Sign')[0].textContent;
-                    ContentList.push([image,distributor,app,special,download,sign]);
-                }
-               },
-               error: function () {
-                   console.log('读取XML文件时出错');
-               }
-           });
-    for (let i = 0; i < ContentList.length; i++) {
-        let lineBreak = document.createElement('br');
-        let dev0 = document.createElement('div');
-        let dev1 = document.createElement('div');
-        let dev2 = document.createElement('div');
-        let Pageimg = document.createElement('img');
-        Pageimg.src = ContentList[i][0];
-        dev1.appendChild(Pageimg);
-        dev0.appendChild(dev1);
-        let label1 = document.createElement('label');
-        label1.textContent = "Distributor:" + ContentList[i][1];
-        dev2.appendChild(label1);
-        let label2 = document.createElement('label');
-        label2.textContent = "AppPlatformVersion:" + ContentList[i][2];
-        dev2.appendChild(label2);
-        let label3 = document.createElement('label');
-        label3.textContent = "Special:" + ContentList[i][3];
-        dev2.appendChild(label3);
-        let label4 = document.createElement('label');
-        let link = document.createElement('a');
-        link.href = ContentList[i][4];
-        link.textContent = 'Download Link';
-        label4.appendChild(link);
-        label4.appendChild(lineBreak);
-        dev2.appendChild(label4);
-        let label5 = document.createElement('label');
-        label5.textContent = "Sign:" + ContentList[i][5];
-        dev2.appendChild(label5);
-        dev0.appendChild(dev2);
-        let pElement = document.getElementById('start');
-        pElement.insertAdjacentHTML('afterend', div0);
-    }
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "data.xml", true);
+    xhr.onreadystatechange = function() {
+    
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        Page(xhr.responseText,document);
+    };
+    };
+    xhr.send();
+    
 </script>
 </html>
