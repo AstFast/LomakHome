@@ -20,7 +20,7 @@ function Page(content,document) {
         let dev2 = document.createElement('div');
         let Pageimg = document.createElement('img');
         Pageimg.src = ContentList[i][0];
-        //Pageimg.style = "width:128px;height: 128px;";
+        Pageimg.style = "width:128px;height: 128px;";
         dev1.appendChild(Pageimg);
         dev0.appendChild(dev1);
         let label1 = document.createElement('label');
